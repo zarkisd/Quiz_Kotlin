@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -24,14 +25,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility kotlin_version
+        targetCompatibility kotlin_version
     }
     kotlinOptions {
         jvmTarget = '1.8'
     }
     buildFeatures {
         viewBinding true
+
     }
 }
 
@@ -40,6 +42,8 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     def nav_version = "2.3.5"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
@@ -58,4 +62,5 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation platform('com.google.firebase:firebase-bom:28.2.0')
 }
